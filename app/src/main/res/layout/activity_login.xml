@@ -8,6 +8,22 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bilbo"
+        android:gravity="center_horizontal"
+        android:text="@string/app_name"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/icon" />
+
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
@@ -27,6 +43,6 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login" />
+        android:text="Log In" />
 
 </LinearLayout>
