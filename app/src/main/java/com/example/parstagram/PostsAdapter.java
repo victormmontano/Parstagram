@@ -52,7 +52,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
-            ivImage = itemView.findViewById(R.id.ivPostImage);
+            ivImage = itemView.findViewById(R.id.ivImage);
             tvCaption = itemView.findViewById(R.id.tvCaption);
         }
 
@@ -60,6 +60,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvName.setText(post.getUser().getUsername());
             ivImage.setParseFile(post.getImage());
             ivImage.loadInBackground();
+            tvCaption.setText(post.getDescription());
         }
 
     }

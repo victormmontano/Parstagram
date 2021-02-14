@@ -7,17 +7,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
-
+    private static final String TAG = "HomeActivity";
     RecyclerView rvPosts;
-    List<Post> posts;
+    List<Post> postList;
     PostsAdapter postsAdapter;
     BottomNavigationView bnv;
 
@@ -27,8 +32,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         rvPosts = findViewById(R.id.rvPosts);
-        posts = new ArrayList<>();
-        postsAdapter = new PostsAdapter(this, posts);
+        postList = new ArrayList<>();
+        postsAdapter = new PostsAdapter(this, postList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rvPosts.setLayoutManager(layoutManager);
         rvPosts.setAdapter(postsAdapter);
@@ -56,12 +61,33 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        loadPosts();
+        queryPosts();
 
     }
 
-    private void loadPosts() {
+    private void queryPosts() {
+        postList.clear();
+        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
+        query.include(Post.KEY_USER);
+        query.findInBackground(new FindCallback<Post>() {
+            @Override
+            public void done(List<Post> posts, ParseException e) {
+                if(e != null){
+                    Log.e(TAG, "failure", e);
+                    return;
+                }
+                Log.i(TAG, ParseUser.getCurrentUser().getUsername());
 
+              for(Post post: posts) {
+                    if (post.getUser().getUsername().equals(ParseUser.getCurrentUser().getUsername())) {
+                       // Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
+                        postList.add(post);
+                        postsAdapter.notifyDataSetChanged();
+                    }
+                }
+
+            }
+        });
     }
 
 

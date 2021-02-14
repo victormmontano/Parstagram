@@ -27,6 +27,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ParseUser.logOut();
                 startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
+                finish();
             }
         });
 
