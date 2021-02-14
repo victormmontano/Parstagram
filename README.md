@@ -16,7 +16,7 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 - [x] User sees app icon in home screen and styled bottom navigation view
-- [ ] Style the feed to look like the real Instagram feed.
+- [x] Style the feed to look like the real Instagram feed.
 - [ ] After the user submits a new post, show an indeterminate progress bar while the post is being uploaded to Parse.
 
 
@@ -30,7 +30,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Posting the image was a challenge because I had to figure out how to display post on my own using recycler
 
 ## Open-source libraries used
 
