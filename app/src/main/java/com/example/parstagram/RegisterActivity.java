@@ -25,7 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-         etUsername = findViewById(R.id.etUsername);
+        etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnRegister = findViewById(R.id.btnRegister);
         btnLogin = findViewById(R.id.btnLogin);
@@ -72,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (e == null) {
                     // Hooray! Let them use the app now.
                     Log.i(TAG, "success register");
-                    startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
+                    startActivity(new Intent(RegisterActivity.this, MainActivity.class));
                 } else {
                     // Sign up didn't succeed. Look at the ParseException
                     // to figure out what went wrong

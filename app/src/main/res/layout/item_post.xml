@@ -10,14 +10,16 @@
         android:id="@+id/tvName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textStyle="bold" />
 
     <com.parse.ui.widget.ParseImageView
         android:id="@+id/ivImage"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_below="@id/tvName"
-        android:background="#AFACAC" />
+        android:background="#AFACAC"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/tvCaption"

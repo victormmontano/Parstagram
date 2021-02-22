@@ -22,8 +22,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Parstagram">
         <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".HomeActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
